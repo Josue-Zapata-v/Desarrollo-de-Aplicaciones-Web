@@ -5,44 +5,57 @@
     List<User> listUser = (List<User>) request.getAttribute("listUser");
 %>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Lista de Usuarios</title>
-    <style>
-        table { border-collapse: collapse; width: 80%; margin: auto; }
-        th, td { border: 1px solid #333; padding: 8px; text-align: center; }
-        th { background-color: #eee; }
-        a { text-decoration: none; color: blue; }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-<h2 style="text-align:center;">Lista de Usuarios</h2>
-<p style="text-align:center;"><a href="new">Agregar Nuevo Usuario</a></p>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Email</th>
-        <th>Rol</th>
-        <th>Creado</th>
-        <th>Acciones</th>
-    </tr>
-    <% if (listUser != null) {
-        for (User u : listUser) { %>
-    <tr>
-        <td><%= u.getId() %></td>
-        <td><%= u.getName() %></td>
-        <td><%= u.getEmail() %></td>
-        <td><%= u.getRole() %></td>
-        <td><%= u.getCreatedAt() %></td>
-        <td>
-            <a href="edit?id=<%= u.getId() %>">Editar</a> |
-            <a href="delete?id=<%= u.getId() %>">Eliminar</a>
-        </td>
-    </tr>
-    <%  }
-    } %>
-</table>
+<body class="bg-light">
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Lista de Usuarios</h2>
+
+    <div class="mb-3 text-end">
+        <a href="new" class="btn btn-primary">Agregar Nuevo Usuario</a>
+    </div>
+
+    <table class="table table-bordered table-hover text-center bg-white">
+        <thead class="table-secondary">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Creado</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if (listUser != null && !listUser.isEmpty()) {
+            for (User u : listUser) { %>
+        <tr>
+            <td><%= u.getId() %></td>
+            <td><%= u.getName() %></td>
+            <td><%= u.getEmail() %></td>
+            <td><%= u.getRole() %></td>
+            <td><%= u.getCreatedAt() %></td>
+            <td>
+                <a href="edit?id=<%= u.getId() %>" class="btn btn-sm btn-outline-warning">Editar</a>
+                <a href="delete?id=<%= u.getId() %>" class="btn btn-sm btn-outline-danger"
+                   onclick="return confirm('¿Seguro que deseas eliminar este usuario?');">Eliminar</a>
+            </td>
+        </tr>
+        <% }
+        } else { %>
+        <tr>
+            <td colspan="6" class="text-muted">No hay usuarios registrados.</td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
