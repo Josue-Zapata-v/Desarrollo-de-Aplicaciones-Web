@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registro público</title>
+</head>
+<body>
+<h2>Registro Nuevo Curso</h2>
+<form action="curso" method="post">
+    Código: <input type="text" name="codigo" required maxlength="3"><br><br>
+    Nombre: <input type="text" name="nombre" required><br><br>
+    Créditos: <input type="number" name="creditos" required><br><br>
+    <input type="submit" value="Guardar">
+</form>
+<br>
+<a href="curso?accion=listar">Ver Cursos</a>
+</body>
+</html>

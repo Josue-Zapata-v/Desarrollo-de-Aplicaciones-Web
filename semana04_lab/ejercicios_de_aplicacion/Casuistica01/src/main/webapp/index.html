@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular Pago Alumno</title>
+</head>
+<body>
+<h2>Registro de Pago</h2>
+<form action="pago" method="post">
+    Nombre del Alumno: <input type="text" name="nombre" required><br><br>
+
+    Importe de la cuota: <input type="number" name="importe" required><br><br>
+
+    Colegio de procedencia:
+    <select name="colegio" required>
+        <option value="Nacional">Nacional</option>
+        <option value="Particular">Particular</option>
+    </select>
+    <br><br>
+
+    Categoría:
+    <select name="categoria" required>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+    </select>
+    <br><br>
+
+    <input type="submit" value="Calcular Pago">
+</form>
+</body>
+</html>

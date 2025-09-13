@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcular Neto a Cobrar</title>
+</head>
+<body>
+<h2>Cálculo de Neto del Trabajador</h2>
+<form action="trabajador" method="post">
+    Nombre: <input type="text" name="nombre" required><br><br>
+
+    Sueldo Base: <input type="number" step="0.01" name="sueldo" required><br><br>
+
+    Estado Civil:
+    <select name="estado" required>
+        <option value="Casado">Casado</option>
+        <option value="Viudo">Viudo</option>
+        <option value="Soltero">Soltero</option>
+    </select>
+    <br><br>
+
+    Número de Hijos:
+    <input type="number" name="hijos" min="0" required><br><br>
+
+    <input type="submit" value="Calcular Neto">
+</form>
+</body>
+</html>
