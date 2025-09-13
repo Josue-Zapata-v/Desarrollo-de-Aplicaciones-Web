@@ -15,7 +15,6 @@ public class UserDAO {
     private static final String DELETE_USER_SQL = "DELETE FROM users WHERE id = ?;";
     private static final String UPDATE_USER_SQL = "UPDATE users SET name = ?, email = ?, password = ?, role = ? WHERE id = ?;";
 
-    // Método para obtener la conexión
     protected Connection getConnection() {
         Connection connection = null;
         try {

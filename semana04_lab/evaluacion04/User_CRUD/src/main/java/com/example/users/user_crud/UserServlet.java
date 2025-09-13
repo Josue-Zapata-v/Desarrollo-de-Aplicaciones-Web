@@ -22,7 +22,7 @@ public class UserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response); // Redirigir POST a GET para simplificar
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -60,7 +60,7 @@ public class UserServlet extends HttpServlet {
             throws SQLException, IOException, ServletException {
         List<User> listUser = userDAO.selectAllUsers();
         request.setAttribute("listUser", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp"); // cambiar a JSP para iterar
+        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -76,7 +76,7 @@ public class UserServlet extends HttpServlet {
             throws SQLException, IOException {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
-        String password = request.getParameter("password"); // en producción, aplicar hash
+        String password = request.getParameter("password");
         String role = request.getParameter("role");
         User newUser = new User(name, email, password, role);
         userDAO.insertUser(newUser);
@@ -99,7 +99,7 @@ public class UserServlet extends HttpServlet {
         long id = Long.parseLong(request.getParameter("id"));
         String name = request.getParameter("name");
         String email = request.getParameter("email");
-        String password = request.getParameter("password"); // en producción, hash
+        String password = request.getParameter("password");
         String role = request.getParameter("role");
 
         User user = new User(id, name, email, password, role, null);

@@ -7,13 +7,11 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String role; // admin, teacher, student
+    private String role;
     private Timestamp createdAt;
 
-    // Constructor vacío
     public User() {}
 
-    // Constructor sin ID y createdAt (para crear nuevos usuarios)
     public User(String name, String email, String password, String role) {
         this.name = name;
         this.email = email;
@@ -21,7 +19,6 @@ public class User {
         this.role = role;
     }
 
-    // Constructor completo
     public User(long id, String name, String email, String password, String role, Timestamp createdAt) {
         this.id = id;
         this.name = name;
@@ -31,7 +28,6 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    // Getters y Setters
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }
 
